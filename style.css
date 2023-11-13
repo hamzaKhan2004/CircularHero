@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1.4s;
+}
+
+#page2{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1.4s;
+}
+
+#page3{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1.4s;
+}
+
+#page4{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: cubic-bezier(0.19, 1, 0.22, 1)1.4s;
+}
+
+.bCircle{
+    height: 1700px;
+    width: 1700px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.bCircle img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.smCircle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    z-index: 999;
+}
+
+.smCircle img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mnCircle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    z-index: 999;
+}
+
+.mnCircle img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+button{
+    position: absolute;
+    z-index: 999;
+    height: 50px;
+    width: 100px;
+    border: none;
+    font-size: 20px;
+    top: 50%;
+    color: #000;
+    border-radius: 20px;
+    margin: 0 20px;
+    cursor: pointer;
+    background-color: #ffffff52;
+    backdrop-filter: blur(1px);
+    border: 0.05px solid #29292957;
+}
+#rghtbtn{
+    right: 0%;
+}
+
+#page2{
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+}
+
+#page3{
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+}
+
+#page4{
+    position: absolute;
+    top: 0%;
+    opacity: 0;
+}
+
+@media screen and (max-width: 450px) {
+    
+    #main{
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #page1,#page2,#page3,#page4{
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        transition: cubic-bezier(0.19, 1, 0.22, 1)1.4s;
+    }
+
+        
+    .bCircle{
+        height: 950px;
+        width: 950px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .bCircle img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .smCircle{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 720px;
+        height: 720px;
+        border-radius: 50%;
+        z-index: 999;
+    }
+
+    .smCircle img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .mnCircle{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        z-index: 999;
+    }
+
+    .mnCircle img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    button{
+        position: absolute;
+        z-index: 999;
+        height: 50px;
+        width: 100px;
+        border: none;
+        font-size: 20px;
+        top: 50%;
+        color: #fff;
+        border-radius: 20px;
+        margin: 0 20px;
+        cursor: pointer;
+        background-color: #ffffff52;
+        backdrop-filter: blur(1px);
+        border: 0.05px solid #29292957;
+    }
+    #rghtbtn{
+        top: 85%;
+        right: 30%;
+    }
+
+
+}
