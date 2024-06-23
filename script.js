@@ -1,174 +1,39 @@
-let tl = gsap.timeline();
+let items = document.querySelectorAll(".slider .list .item");
+let prevBtn = document.getElementById("prev");
+let nextBtn = document.getElementById("next");
+let lastPosition = items.length - 1;
+let firstPosition = 0;
+let active = 0;
 
-let rotate = () =>{
-    tl.to('.bCircle',{
-        rotate:"360deg",
-    },'first')
-    
-    tl.to('#page1 > .smCircle',{
-        duration:3,
-        rotate:"-360deg",
-    },'first')
-    
-    tl.to('#page1 > .mnCircle',{
-        duration:3.5,
-        rotate:"360deg",
-    },'first')
-}
+nextBtn.onclick = () => {
+  active = active + 1;
+  setSlider();
+};
+prevBtn.onclick = () => {
+  active = active - 1;
+  setSlider();
+};
+const setSlider = () => {
+  let oldActive = document.querySelector(".slider .list .item.active");
+  if (oldActive) oldActive.classList.remove("active");
+  items[active].classList.add("active");
 
-let rotate2 = () =>{
-    tl.to('#page2 > .bCircle',{
-        rotate:"540deg",
-    },'sec')
-    
-    tl.to('#page2 > .smCircle',{
-        duration:3.5,
-        rotate:"540deg",
-    },'sec')
-    
-    tl.to('#page2 > .mnCircle',{
-        duration:4.2,
-        rotate:"-540deg",
-    },'sec')
-}
-
-let rotate3 = () =>{
-    tl.to('#page3 > .bCircle',{
-        delay:1,
-        duration:4.5,
-        rotate:"-720deg",
-    },'thrid')
-    
-    tl.to('#page3 > .smCircle',{
-        delay:1,
-        duration:4.2,
-        rotate:"720deg",
-    },'thrid')
-    
-    tl.to('#page3 > .mnCircle',{
-        delay:1,
-        duration:4.8,
-        rotate:"-720deg",
-    },'thrid')
-}
-
-let rotate4 = () =>{
-    tl.to('#page4 > .bCircle',{
-        duration:4.5,
-        rotate:"-720deg",
-    },'forth')
-    
-    tl.to('#page4 > .smCircle',{
-        duration:4.2,
-        rotate:"720deg",
-    },'forth')
-    
-    tl.to('#page4 > .mnCircle',{
-        duration:4.8,
-        rotate:"-720deg",
-    },'forth')
-}
-
-let current = 0;
-let page = document.querySelectorAll(".page");
-
-let button = document.querySelector('#rghtbtn');
-
-button.addEventListener('click',() =>{
-        
-            if(page[0] == page[current]){
-                page1();
-                current++;
-            }
-            else if(page[1] == page[current]){
-                page2();
-                    tl.to(page[1], {
-                        opacity: 0,
-                    },'p2same')
-                    tl.to(page[2], {
-                        opacity: 0,
-                    },'p2same')
-                current++;
-            }
-        
-            else if(page[2] == page[current]){
-                page3();
-                tl.to(page[2], {
-                    opacity: 0,
-                },'p3same')
-                tl.to(page[3], {
-                    opacity: 0,
-                },'p3same')
-                current++;
-            }
-            else{
-                current = 0;
-            }
-            if(page[0] == page[current]){
-                page1();
-                current++;
-            }
-            else if(page[1] == page[current]){
-                page2();
-                    tl.to(page[1], {
-                        opacity: 0,
-                    },'p2same')
-                    tl.to(page[2], {
-                        opacity: 0,
-                    },'p2same')
-                current++;
-            }
-        
-            else if(page[2] == page[current]){
-                page3();
-                tl.to(page[2], {
-                    opacity: 0,
-                },'p3same')
-                tl.to(page[3], {
-                    opacity: 0,
-                },'p3same')
-                current++;
-            }
-        
-})
-
-let page1 = () => {
-    tl.to(page[0], {
-        duration:.02,
-        opacity: 0,
-    },rotate(),'same')
-    tl.from(page[1], {
-        opacity: 1,
-        duration:.2,
-    },'same')
-}
-
-let page2 = () => {
-    
-    tl.to(page[1], {
-        duration:.02,
-        opacity: 0,
-    },rotate2(),'change')
-
-    tl.from(page[2], {
-        delay:0.05,
-        opacity: 1,
-        duration:.02,
-    },'change')
-}
-
-let page3 = () => {
-    tl.from(page[2], {
-        duration:.02,
-   
-        opacity: 0,
-    },rotate3(),'last')
-
-    tl.from(page[3], {
-        delay:0.05,
-        opacity: 1,
-        duration:.02,
-    },'last')
-    rotate4()
-}
-
+  nextBtn.classList.remove("d-none");
+  prevBtn.classList.remove("d-none");
+  if (active == lastPosition) nextBtn.classList.add("d-none");
+  if (active == firstPosition) prevBtn.classList.add("d-none");
+};
+//set diameter
+const setDiameter = () => {
+  let slider = document.querySelector(".slider");
+  let widthSlider = slider.offsetWidth;
+  let heightSlider = slider.offsetHeight;
+  let diameter = Math.sqrt(
+    Math.pow(widthSlider, 2) + Math.pow(heightSlider, 2)
+  );
+  document.documentElement.style.setProperty("--diameter", diameter + "px");
+};
+setDiameter();
+window.addEventListener("resize", () => {
+  setDiameter();
+});
